@@ -5,34 +5,49 @@
 
 
 
-@keyframes slide-in {
-    from {
-        translate: 150vw 0;
-        scale: 200% 1;
-    }
-
-    to {
-        translate: 0 0;
-        scale: 100% 1;
-    }
+html {
+    height: 100vh;
 }
 
-@keyframes grow-shrink {
-    25%,
-    75% {
-        scale: 100%;
+div {
+    font-size: 1.6rem;
+    padding: 20px;
+    border: 3px solid red;
+    border-radius: 20px;
+    width: 480px;
+    opacity: 0;
+    display: none;
+}
+
+div.fade-in {
+    display: block;
+    animation: fade-in 0.7s ease-in forwards;
+}
+
+div.fade-out {
+    animation: fade-out 0.7s ease-out forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        display: none;
     }
 
     100% {
-        scale: 2000%;
-        color: magenta;
+        opacity: 1;
+        display: block;
     }
 }
 
-.slide-in {
-    animation-duration: 3s;
-    animation-name: slide-in;
-    animation-iteration-count: 3;
-    animation-direction: alternate;
-}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        display: block;
+    }
 
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}

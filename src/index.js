@@ -1,23 +1,17 @@
 import "./styles.css";
 
-const element = document.getElementById('watch-me');
-element.addEventListener('animationstart', listener);
-element.addEventListener('animationend', listener);
-element.addEventListener('animationiteration', listener);
+const divElem = document.querySelector("div");
+const htmlElem = document.querySelector(":root");
 
-element.className = 'slide-in';
-function listener(event) {
-    const l = document.createElement('li');
-    switch(event.type) {
-        case "animationstart":
-            l.textContent = `Started: elapsed time is ${event.elapsedTime}`;
-            break;
-        case "animationend":
-            l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
-            break;
-        case "animationiteration":
-            l.textContent = `New loop started at time ${event.elapsedTime}`;
-            break;
+htmlElem.addEventListener("click", showHide);
+document.addEventListener("keydown", showHide);
+
+function showHide() {
+    if (divElem.classList[0] === "fade-in") {
+        divElem.classList.remove("fade-in");
+        divElem.classList.add("fade-out");
+    } else {
+        divElem.classList.remove("fade-out");
+        divElem.classList.add("fade-in");
     }
-    document.getElementById("output").appendChild(l);
 }
