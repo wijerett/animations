@@ -1,53 +1,55 @@
-
-
-
-
-
-
-
 html {
-    height: 100vh;
+    height: 100%;
 }
 
-div {
-    font-size: 1.6rem;
-    padding: 20px;
-    border: 3px solid red;
-    border-radius: 20px;
-    width: 480px;
-    opacity: 0;
-    display: none;
+body {
+    padding: 32px 0;
+    height: 100%;
+    display: grid;
+    place-content: center;
 }
 
-div.fade-in {
-    display: block;
-    animation: fade-in 0.7s ease-in forwards;
+section {
+    display: flex;
+    gap: 16px;
 }
 
-div.fade-out {
-    animation: fade-out 0.7s ease-out forwards;
+.box {
+    width: 75px;
+    height: 75px;
+    background: slateblue;
+    padding: 8px;
+    display: grid;
+    place-content: center;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
 }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        display: none;
+@keyframes bounce {
+    from {
+        transform: translateY(0px);
     }
-
-    100% {
-        opacity: 1;
-        display: block;
+    to {
+        transform: translateY(var(--bounce-offset));
     }
 }
 
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-        display: block;
-    }
+.box {
+    animation: bounce alternate infinite cubic-bezier(.2, .65, .6, 1);
+}
 
-    100% {
-        opacity: 0;
-        display: none;
-    }
+.box.one {
+    --bounce-offset: -20px;
+    animation-duration: 200ms;
+}
+
+.box.two {
+    --bounce-offset: -30px;
+    animation-duration: 300ms;
+}
+
+.box.three {
+    --bounce-offset: -40px;
+    animation-duration: 400ms;
 }
