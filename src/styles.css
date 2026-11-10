@@ -31,7 +31,7 @@ section {
         transform: translateY(0px);
     }
     to {
-        transform: translateY(var(--bounce-offset));
+        transform: translateY(calc(var(--bounce-height) * -1));
     }
 }
 
@@ -40,16 +40,16 @@ section {
 }
 
 .box.one {
-    --bounce-offset: -20px;
+    --bounce-height: 20px;
     animation-duration: 200ms;
 }
 
 .box.two {
-    --bounce-offset: -30px;
+    --bounce-height: 30px;
     animation-duration: 300ms;
 }
 
 .box.three {
-    --bounce-offset: -40px;
+    --bounce-height: 40px;
     animation-duration: 400ms;
 }
